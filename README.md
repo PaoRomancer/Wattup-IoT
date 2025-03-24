@@ -38,8 +38,7 @@ The WattsUp: Smart Energy Monitoring System is a smart energy management solutio
 
 ### 🚨 6. Buzzer for Alerts
 - Trigger an alert when voltage or current is abnormal
-
-Sound the buzzer when electricity cost exceeds the set limit
+- Sound the buzzer when electricity cost exceeds the set limit
 
 ### 🔋 7. Surge and Overcurrent Protection
 - Automatically cut off power when voltage or current exceeds the limit
