@@ -1,5 +1,5 @@
 # WattsUp: Smart Energy Monitoring System
-![My Project Screenshot](img/img-1.png) 
+![header](img/img-1.png) 
 <br>
 The **WattsUp: Smart Energy Monitoring System** is a smart energy management solution designed to monitor and control household power consumption in real time. It uses an **ESP32** microcontroller connected to a **PZEM-004T V3.0** sensor to measure voltage, current, power, and energy consumption. The system transmits data to the **Blynk app** for real-time monitoring and cost calculation, allowing users to adjust the electricity tariff (FT) and receive alerts for abnormal values. A built-in relay and buzzer provide protection by automatically cutting off power and sounding an alarm when overvoltage or overcurrent is detected. Additionally, the system logs data to **Google Sheets** for easy tracking and analysis. This project aims to improve energy efficiency and provide a reliable solution for managing electricity usage at home.
 
