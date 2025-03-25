@@ -2,9 +2,9 @@
 #define BLYNK_PRINT Serial
 
 /* Fill in information from Blynk Device Info here */
-#define BLYNK_TEMPLATE_ID "TMPL6mAboexY_"
-#define BLYNK_TEMPLATE_NAME "Wattupnew"
-#define BLYNK_AUTH_TOKEN "xLiwHSFoSVWFV_GYSayYaC55egeHAg2z"
+#define BLYNK_TEMPLATE_ID ""
+#define BLYNK_TEMPLATE_NAME ""
+#define BLYNK_AUTH_TOKEN ""
 
 #include <WiFi.h>
 #include <WiFiClient.h>
@@ -28,8 +28,8 @@
 #define CURRENT_HIGH_LIMIT 10.0
 
 // WiFi credentials
-char ssid[] = "aungpao";
-char pass[] = "aungpaoaungpao";
+char ssid[] = "";
+char pass[] = "";
 
 class EmailService {
 private:
