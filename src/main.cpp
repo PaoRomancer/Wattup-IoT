@@ -480,18 +480,6 @@ BLYNK_WRITE(V4) {
   Blynk.virtualWrite(V4, "\nFT updated to: " + String(newFT, 2) + " THB/kWh\n");
 }
 
-// Add another virtual pin for enabling/disabling test mode 
-BLYNK_WRITE(V7) {
-  int testModeStatus = param.asInt();
-  if (testModeStatus == 1) {
-    energyMonitor.enableTestMode();
-    Blynk.virtualWrite(V4, "\nTEST MODE ENABLED\n");
-  } else {
-    energyMonitor.disableTestMode();
-    Blynk.virtualWrite(V4, "\nTEST MODE DISABLED\n");
-  }
-}
-
 void setup() {
   Serial.begin(115200);
   
@@ -539,38 +527,7 @@ void setup() {
 
 void loop() {
   Blynk.run();
-  
-  // Check physical pin for test mode (alternative to Blynk control)
-  if (digitalRead(TEST_MODE_PIN) == LOW) {
-    if (!alertSystem.isInTestMode()) {
-      energyMonitor.enableTestMode();
-    }
-  } else {
-    if (alertSystem.isInTestMode()) {
-      energyMonitor.disableTestMode();
-    }
-  }
-  
   energyMonitor.update();
   delay(5000);
 }
 
-/*วิธีการใช้งานโหมดทดสอบ
-มีส่วนของโค้ดปกติที่อ่านค่าจากเซนเซอร์
-มีส่วนโค้ดทดสอบที่ถูกคอมเมนต์ไว้ที่คุณสามารถเปิดใช้งานได้
-
-
-วิธีการเปิดใช้งานโหมดทดสอบ:
-คอมเมนต์ส่วนที่อ่านค่าจากเซ็นเซอร์จริง
-เปิดคอมเมนต์ส่วนที่ใช้ในการทดสอบ
-มี 2 วิธีในการเปิดใช้งานโหมดทดสอบ:
-a. ผ่านแอป Blynk (เพิ่มปุ่มบนวิดเจ็ต V7 - switch)
-b. ผ่านขา GPIO ของบอร์ด (กำหนดไว้ที่ขา 5 ต่อลงกราวด์เพื่อเปิดใช้งาน)
-
-
-
-สิ่งที่เพิ่มเติม
-เพิ่มการแสดงผลบนหน้าจอ OLED เมื่ออยู่ในโหมดทดสอบ
-เพิ่มคลาสและเมธอดสำหรับจัดการกับโหมดทดสอบโดยเฉพาะ
-ระบบจะส่งอีเมลแจ้งเตือนเมื่อมีการตัดไฟในโหมดทดสอบ
-มีการแสดงข้อความบนซีเรียลมอนิเตอร์เพื่อให้ทราบสถานะการทดสอบ*/
